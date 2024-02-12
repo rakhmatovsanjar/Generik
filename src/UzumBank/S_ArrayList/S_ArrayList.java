@@ -1,9 +1,15 @@
-public class SanjarList<T> {
+package UzumBank.S_ArrayList;
+
+import UzumBank.BankModel;
+import UzumLits.ListAbstract;
+
+public class S_ArrayList<S> extends ListAbstract<S> {
+    BankModel bankModel=new BankModel();
     private static final int DEFAULT_CAPACITY = 10;
     private Object[] elementData;
     private int size;
 
-    public SanjarList() {
+    public S_ArrayList() {
         elementData = new Object[DEFAULT_CAPACITY];
     }
 
@@ -21,33 +27,38 @@ public class SanjarList<T> {
         }
     }
 
-
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
+    public boolean isEmpty() {
+        return size==0;
+    }
 
-    public void add(T element) {
+    public boolean containsNumber(Integer n) {
+        return n.equals(bankModel.getPhoneNomber());
+    }
+    public boolean containsPassword(String s) {
+        return s.equals(bankModel.getPassword());
+    }
+
+    @Override
+    public void add(S s) {
         ensureCapacity(size + 1);
-        elementData[size++] = element;
+        elementData[size++] = s;
     }
 
-    public void addAll(SanjarList<T> newElementDat) {
-        ensureCapacity(size + newElementDat.size());
-        for (int i = 0; i < newElementDat.size(); i++) {
-            elementData[size++] = newElementDat.get(i);
-        }
-    }
-
-    public void remove(T element) {
+    @Override
+    public void remove(Object o) {
         int found = -1;
         for (int i = 0; i < size; i++) {
-            if (elementData[i].equals(element)) {
+            if (elementData[i].equals(o)) {
                 found = i;
                 break;
             }
         }
-
         if (found != -1) {
             for (int i = found; i < size - 1; i++) {
                 elementData[i] = elementData[i + 1];
@@ -56,52 +67,39 @@ public class SanjarList<T> {
         }
     }
 
-
-    public void add(int index, T element) {
-        if (index < 0 || index > size) {
-            System.out.println("Bunaqa index yuq aka adshtiz");
-        }
-        ensureCapacity(size + 1);
-        Object[] newArray = new Object[size + 1];
-        for (int i = 0; i < index; i++) {
-            newArray[i] = elementData[i];
-        }
-        for (int i = index; i < size; i++) {
-            newArray[i + 1] = elementData[i];
-        }
-        newArray[index] = element;
-        elementData = newArray;
-        size++;
-    }
-
-    public T get(int index) {
-        for (int i = 0; i < elementData.length; i++) {
-            if (i == index) {
-                return (T) elementData[i];
-            }
-        }
-        return null;
-    }
-
+    @Override
     public void clear() {
         for (int i = 0; i < size; i++) {
-            elementData[i] = null;
+            elementData[i]=null;
         }
-        size = 0;
+        size=0;
+    }
+
+    @Override
+    public boolean equalss(Object o) {
+        return super.equalss(o);
+    }
+
+    @Override
+    public int hashCodee() {
+        return super.hashCodee();
+    }
+
+    public int getSize() {
+        return size;
     }
 
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append("[");
+        result.append("-------------------------------------\n");
         for (int i = 0; i < size; i++) {
             if (i > 0) {
-                result.append(", ");
+                result.append("-------------------------------------\n");
             }
             result.append(elementData[i]);
         }
-        result.append("]");
+        result.append("-------------------------------------\n");
         return result.toString();
     }
-
 }
