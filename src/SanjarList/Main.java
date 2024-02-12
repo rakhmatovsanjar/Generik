@@ -1,3 +1,5 @@
+package SanjarList;
+
 class Main {
     public static void main(String[] args) {
         SanjarList<Object> list = new SanjarList<>();
