@@ -1,7 +1,5 @@
 package UzumBank;
 
-import S_ArrayList.S_ArrayList;
-
 public class BankModel {
     private int phoneNomber;
     private String userName;

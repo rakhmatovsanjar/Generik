@@ -1,6 +1,6 @@
 package UzumBank;
 
-import S_ArrayList.S_ArrayList;
+import UzumBank.S_ArrayList.S_ArrayList;
 
 import java.util.Scanner;
 

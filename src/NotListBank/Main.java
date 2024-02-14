@@ -5,12 +5,7 @@ import java.util.Scanner;
 public class  Main {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-
         BankServise bankServise=new BankServise();
-
-
-
-
         Label:
         while (true) {
             System.out.println("Bankimizga xush kelibsiz! \nTanlang 1-> Kirish: 2-> Ro'yxatdan o'tish");
